@@ -1,0 +1,16 @@
+﻿<Application x:Class="TTElecrtroshield.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:TTElecrtroshield"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources\Labels.xaml"/>
+                <ResourceDictionary Source="Resources\Buttons.xaml"/>
+                <ResourceDictionary Source="Resources\TextBoxes.xaml"/>
+                <ResourceDictionary Source="Resources\ListBoxes.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

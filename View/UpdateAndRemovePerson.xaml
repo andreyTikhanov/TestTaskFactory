@@ -1,0 +1,70 @@
+﻿<Page x:Class="TTElecrtroshield.View.UpdateAndRemovePerson"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TTElecrtroshield.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="700"
+      Title="UpdateAndRemovePerson">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Background="LightGray" Orientation="Horizontal" VerticalAlignment="Center">
+            <Label Content="Управление сотрудниками" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <Grid Grid.Row="1" Background="White" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="500"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+           
+            <!-- Первый ListBox -->
+            <StackPanel Grid.Column="0" Margin="5">
+                <Label Content="Список сотрудников" FontSize="16" Margin="10 0"/>
+                <ListBox Width="480" Height="350" x:Name="lbEmployees"
+                         Style="{StaticResource MylistBoxes }" SelectionMode="Multiple"
+                        SelectionChanged="lbEmployees_SelectionChanged" DisplayMemberPath="Fio"  Margin="0 0 0 0"/>
+                <StackPanel Grid.Row="2" Background="White">
+                    <StackPanel Orientation="Vertical"  Margin="10 10 0 0">
+                        
+                        <Label Style="{StaticResource Labels}"
+                         Content="Введите количество % премии и выберите работников: "></Label>
+                         <TextBox Margin="-200 10 0 0 " x:Name="tbPercent" Style="{StaticResource myTextBoxes}" Width="250"></TextBox>
+                        <Button Style="{StaticResource ButtonStyle}"
+                         Margin="-200 10 0 0" Content="Добавить премию"
+                         Click="btnAddIncrease_Click"></Button>
+                        <Button Style="{StaticResource ButtonStyle}"
+                                Content="Список без повышения зп"
+                                Margin="-200 10 0 0" Click="btnListNotIncrease"></Button>
+                        
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+            
+            <!-- Второй ListBox -->
+            <StackPanel Grid.Column="1" Margin="5">
+                <Image Source="\Image\Label2.png"/>
+                <Label  Content="Список отделов" FontSize="16" Margin="10 0"/>
+                <ComboBox SelectionChanged="cbDepartments_SelectionChanged"
+                 DisplayMemberPath="Title" 
+                 SelectedValuePath="Id" Name="cbDepartments"></ComboBox>
+                <Button Margin="0 59 0 0" Width="150" Style="{StaticResource ButtonStyle}" Content="Добавить работника" Click="btnAddPersonClick"></Button>
+                <Button Margin="0 20 0 0" Style="{StaticResource ButtonStyle}" Content="Удалить работника" Click="btnDeleteSelectedPersons_Click" Width="150"/>
+                <Button Margin="0 20 0 0" Style="{StaticResource ButtonStyle}" Content="Редактировать" Click="btnEditSelectedPerson_Click" Width="150"/>
+                <Button Style="{StaticResource ButtonStyle}" Content="Повышение зп"
+                 Width="150" Margin="0 20 0 0" Click="btnLookIncrease_Click"></Button>
+                <Button x:Name="btnGenerateReport" Style="{StaticResource ButtonStyle}" Width="150" Content="Отчет в EXCEL" Margin="0 20 0 0 " Click="btnGenerateReport_Click"></Button>
+                <Button Margin="0 20 0 0" Style="{StaticResource ButtonStyle}" Content="Выйти" Click="btnExit_Click" Width="150"/>
+                
+            </StackPanel>
+             
+        </Grid>
+    </Grid>
+
+</Page>
